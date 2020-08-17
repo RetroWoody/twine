@@ -15,7 +15,7 @@
 {
   font-family: Courier;
   font-size: 18px;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Start" tags="" position="941.6666666666667,427.83333333333337" size="100,100">You wake up...
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Start" tags="" position="941,427" size="100,100">You wake up...
 (if: $sleep &lt;2)[
 
 [[Open your eyes-&gt;The First room]]
@@ -32,7 +32,7 @@ Go back to sleep(click: &quot;Go back to sleep&quot;)[
   (goto: &quot;The Interrogation room&quot;) ]
 ]
 
-</tw-passagedata><tw-passagedata pid="2" name="Inventory" tags="" position="115.66666666666656,483.83333333333337" size="200,100">---
+</tw-passagedata><tw-passagedata pid="2" name="Inventory" tags="footer" position="115,483" size="200,100">---
 &lt;!--  See [[Start]] room for the variables --&gt;
 ##### Inventory
 {
@@ -41,7 +41,7 @@ Go back to sleep(click: &quot;Go back to sleep&quot;)[
 (if: $photo is true)[* Photo]
 (if: $cup is true)[* tea cup]
 (if: $keycard is true)[* keycard]
-}</tw-passagedata><tw-passagedata pid="3" name="The First room" tags="" position="835,799.5000000000001" size="200,200"># The first room
+}</tw-passagedata><tw-passagedata pid="3" name="The First room" tags="" position="833,810" size="200,200"># The first room
 
 (if: $light is true)[
 You are in a small room. 
@@ -69,7 +69,7 @@ It&#39;s completely dark. You can&#39;t see anything.
 
 ]
 
-(display: &quot;Inventory&quot;)</tw-passagedata><tw-passagedata pid="4" name="The Interrogation room" tags="" position="2900,61.16666666666667" size="100,100">&quot;We expected more from you&quot;</tw-passagedata><tw-passagedata pid="5" name="Daniel" tags="" position="826.333333333333,1170.166666666667" size="200,100">&lt;!-- 
+</tw-passagedata><tw-passagedata pid="4" name="The Interrogation room" tags="" position="3110,1187.6666666666667" size="100,100">you find yourself in white room with 3 speakers. for some reason your mouth doesn&#39;t work and you can&#39;t move your sitting on a metal chair with a white table in front of you, suddenly the speakers start  crackle and a grumpy voise says &quot;we expected more from you john&quot;</tw-passagedata><tw-passagedata pid="5" name="Daniel" tags="" position="872.6666666666666,1510" size="200,100">&lt;!-- 
                    N
 			   &lt; W + E &gt;
 				   S
@@ -108,7 +108,7 @@ The boy asks,&quot;Do you know were my teddy bear is?&quot;
 
 }
 
-(display: &quot;Inventory&quot;)</tw-passagedata><tw-passagedata pid="6" name="The bin" tags="" position="436,851.5000000000001" size="100,200">&lt;!-- 
+</tw-passagedata><tw-passagedata pid="6" name="The bin" tags="" position="436,851" size="100,200">&lt;!-- 
   &#96;-----------------------------------------##-------&#96;
   &#96;|              |                 |       d5       |&#96;
   &#96;#d1    X       #d2               #d3             #d4&#96;
@@ -140,7 +140,7 @@ Inside the bin you find:
 [[Get out of the bin-&gt;The First room]]
 }
 
-(display: &quot;Inventory&quot;)</tw-passagedata><tw-passagedata pid="7" name="template" tags="" position="260.6666666666667,24.166666666666664" size="100,100">&lt;!-- 
+</tw-passagedata><tw-passagedata pid="7" name="template" tags="" position="260,17.333333333333336" size="100,100">&lt;!-- 
                    N
 			   &lt; W + E &gt;
 				   S
@@ -160,22 +160,21 @@ Inside the bin you find:
 
 { &lt;!-- Doors and exits --&gt;
 There is a door to the east.\
-(if: $d2 is &quot;open&quot;) [The door is open.] (else:) [The door is locked.]
+(if: $d3 is &quot;open&quot;) [The door is open.] (else:) [The door is locked.]
 }
 ---
 {&lt;!-- Options --&gt;
 
 }
 
-(display: &quot;Inventory&quot;)</tw-passagedata><tw-passagedata pid="8" name="The photograph" tags="" position="97.33333333333333,817.1666666666667" size="100,100">(set: $photo to true)
-(replace: ?boy_name)[Daniel]
+</tw-passagedata><tw-passagedata pid="8" name="The photograph" tags="" position="100,817" size="100,100">(set: $photo to true)
 
 In the photo theres a girl a boy holding a teddy bear and a  father and a mother but the mothers head isnt there somone must have torn it of, and at the back it says Daniel smith, seem&#39;s familiar.
-(set:$story to true)
+
  
 
 [[Keep looking in the bin-&gt;The bin]]
-[[Get out of the bin--&gt;The First room]]</tw-passagedata><tw-passagedata pid="9" name="The book" tags="" position="76.99999999999997,1071.4999999999998" size="100,100">
+[[Get out of the bin--&gt;The First room]]</tw-passagedata><tw-passagedata pid="9" name="The book" tags="" position="76,1071" size="100,100">
 (font:&quot;serif&quot;)[
 Ive been trapped in the 3 rooms for  several days
 now i dont know what  Jack is planning but it surely
@@ -186,7 +185,7 @@ survive
 [[Keep looking in the bin-&gt;The bin]]
 [[Get out of the bin-&gt;The First room]]
 
-(set:$book to true)</tw-passagedata><tw-passagedata pid="10" name="my teddy" tags="" position="103.66666666666669,684.5000000000001" size="100,100">you pick up a old teddy i like teddys but not old ones I, like synthetic new one&#39;s.
+(set:$book to true)</tw-passagedata><tw-passagedata pid="10" name="my teddy" tags="" position="99,695" size="100,100">you pick up a old teddy i like teddys but not old ones I, like synthetic new one&#39;s.
 
 
 
@@ -198,7 +197,7 @@ survive
 (set:$teddy to true)
   
 
-</tw-passagedata><tw-passagedata pid="11" name="my keycard" tags="" position="92,947.1666666666665" size="100,100">This opens a door but i dont know what door it opens. 
+</tw-passagedata><tw-passagedata pid="11" name="my keycard" tags="" position="92,947" size="100,100">This opens a door but i dont know what door it opens. 
 (set:$keycard to true)
 
 
@@ -209,22 +208,21 @@ survive
 
 
 [[Keep looking in the bin-&gt;The bin]]
-[[Get out of the bin-&gt;The First room]]</tw-passagedata><tw-passagedata pid="12" name="cup" tags="" position="76.33333333333334,1196.5" size="100,100">Looks like a cup for a tea party but im not invited. 
+[[Get out of the bin-&gt;The First room]]</tw-passagedata><tw-passagedata pid="12" name="cup" tags="" position="76,1196" size="100,100">Looks like a cup for a tea party but im not invited. 
 [[Keep looking in the bin-&gt;The bin]]
 [[Get out of the bin-&gt;The First room]]
-(set:$cup to true)</tw-passagedata><tw-passagedata pid="13" name="hidden setup" tags="startup" position="206.66666666666663,349.1666666666667" size="100,100">&lt;!-- All the variables --&gt;
+(set:$cup to true)</tw-passagedata><tw-passagedata pid="13" name="hidden setup" tags="startup" position="207.66666666666666,350.3333333333333" size="100,100">&lt;!-- All the variables --&gt;
 
 (set: $teddy to false)
 (set: $book to false)
 (set: $photo to false)
 (set: $keycard to false)
 (set: $cup to false )
-(set: $story to false)
 
 
 
 (set: $boy_mode to &quot;no teddy&quot;)
-</tw-passagedata><tw-passagedata pid="14" name="The Second Room" tags="" position="1800.0000000000002,799.1666666666667" size="200,200">&lt;!-- 
+</tw-passagedata><tw-passagedata pid="14" name="The Second Room" tags="" position="1923.3333333333335,829.9999999999999" size="200,200">&lt;!-- 
                    N
 			   &lt; W + E &gt;
 				   S
@@ -237,9 +235,9 @@ survive
   &#96;---------------------------------------------------&#96;
 --&gt;
 &lt;!-- Title --&gt;
-# 
+# room 2 
 &lt;!--Description --&gt;
-
+there is a girl in the corner playing with a doll and a tea set in the room . the rest of the room is empty apart from a door
 
 { &lt;!-- Doors and exits --&gt;
 There is a door to the west.\
@@ -249,10 +247,14 @@ There is a door to the east.\
 }
 ---
 {&lt;!-- Options --&gt;
+[* [[walk closer to the child-&gt;mae]]] 
+[* [[go back to room 1-&gt;The First room]]] 
+(if: $d3 is &quot;open&quot;)[* [[go back to room 3 -&gt;The Third Room]]] 
+
 
 }
 
-(display: &quot;Inventory&quot;)</tw-passagedata><tw-passagedata pid="15" name="The Third Room" tags="" position="2603.3333333333335,800.8333333333335" size="200,200">&lt;!-- 
+</tw-passagedata><tw-passagedata pid="15" name="The Third Room" tags="" position="2511.3333333333335,881.6666666666667" size="200,200">&lt;!-- 
                    N
 			   &lt; W + E &gt;
 				   S
@@ -285,7 +287,7 @@ There is a door to the north.\
 
 }
 
-(display: &quot;Inventory&quot;)</tw-passagedata><tw-passagedata pid="16" name="yes I have it" tags="" position="901.333333333333,1340.1666666666667" size="100,100">&lt;!-- 
+</tw-passagedata><tw-passagedata pid="16" name="yes I have it" tags="" position="1062,1715" size="100,100">&lt;!-- 
                    N
 			   &lt; W + E &gt;
 				   S
@@ -315,7 +317,7 @@ Dan sez...
 
 }
 
-(display: &quot;Inventory&quot;)</tw-passagedata><tw-passagedata pid="17" name="I can help you find it" tags="" position="611.333333333333,1321.8333333333335" size="100,100"></tw-passagedata><tw-passagedata pid="18" name="why would I care about a teddy bear" tags="" position="1059.6666666666663,1331.8333333333335" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="19" name=" now I&#39;ve given you your teddy bear now can you open the door please?" tags="" position="827.9999999999997,1578.5" size="100,100">&lt;!-- 
+</tw-passagedata><tw-passagedata pid="17" name="I can help you find it" tags="" position="617.3333333333334,1571" size="100,100">thank you so mu</tw-passagedata><tw-passagedata pid="18" name="why would I care about a teddy bear" tags="" position="1240,1566" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="19" name=" now I&#39;ve given you your teddy bear now can you open the door please?" tags="" position="834.6666666666667,1793" size="100,100">&lt;!-- 
                    N
 			   &lt; W + E &gt;
 				   S
@@ -331,7 +333,7 @@ Dan sez...
 &lt;!-- Title --&gt;
 #door opend
 &lt;!--Description --&gt;
-daniel turns the the teddy around and unzips the zip on the back of the teddy then he pulls out a key and opens the door 
+daniel turns the the teddy around and unzips the zip on the back of the teddy then he pulls out a key and opens the door  
   
 
 { &lt;!-- Doors and exits --&gt;
@@ -342,7 +344,302 @@ daniel turns the the teddy around and unzips the zip on the back of the teddy th
 
 }
 (set:$d2 to &quot;open&quot;)
-(display: &quot;Inventory&quot;)</tw-passagedata></tw-storydata>
+</tw-passagedata><tw-passagedata pid="20" name="try and break down the door" tags="" position="1856.6666666666667,1385.3333333333335" size="100,100">&lt;!-- 
+                   N
+			   &lt; W + E &gt;
+				   S
+
+
+  &#96;-----------------------------------------##-------&#96;
+  &#96;|              |                 |       d5       |&#96;
+  &#96;#d1            #d2               #d3             #d4&#96;
+  &#96;|              |                 |                |&#96;
+  &#96;|              |                 |                |&#96;
+  &#96;---------------------------------------------------&#96;
+--&gt;
+&lt;!-- Title --&gt;
+# 
+&lt;!--Description --&gt;
+
+
+{ &lt;!-- Doors and exits --&gt;
+There is a door to the east.\
+(if: $d2 is &quot;open&quot;) [The door is open.] (else:) [The door is locked.]
+}
+---
+{&lt;!-- Options --&gt;
+
+}
+
+</tw-passagedata><tw-passagedata pid="21" name="mae" tags="" position="2109.9999999999995,1406.6666666666665" size="200,100">&lt;!-- 
+                   N
+			   &lt; W + E &gt;
+				   S
+
+
+  &#96;-----------------------------------------##-------&#96;
+  &#96;|              |            x     |       d5       |&#96;
+  &#96;#d1            #d2               #d3             #d4&#96;
+  &#96;|              |                 |                |&#96;
+  &#96;|              |                 |                |&#96;
+  &#96;---------------------------------------------------&#96;
+--&gt;
+&lt;!-- Title --&gt;
+# your not invited 
+&lt;!--Description --&gt;
+you walk closer to the child as she serves the doll tea with here tea cup once she finished serving the doll she bigins to talk,&quot;im very sorry but we dont have any tea cups and your not invited&quot;
+
+
+---
+{&lt;!-- Options --&gt;
+(if:$cup is true)[* [[give cup]]]
+(if:$cup is true)[* [[ask to join the tea party]]]
+[* [[ stop talking-&gt;The Second Room]] ]]]
+[* [[can you open the door please]]]
+
+}
+
+</tw-passagedata><tw-passagedata pid="22" name="give cup" tags="" position="1531.6666666666665,1868.3333333333337" size="100,100">&lt;!-- 
+                   N
+			   &lt; W + E &gt;
+				   S
+
+
+  &#96;-----------------------------------------##-------&#96;
+  &#96;|              |                 |       d5       |&#96;
+  &#96;#d1            #d2               #d3             #d4&#96;
+  &#96;|              |                 |                |&#96;
+  &#96;|              |                 |                |&#96;
+  &#96;---------------------------------------------------&#96;
+--&gt;
+&lt;!-- Title --&gt;
+# cup given
+&lt;!--Description --&gt;
+you give the cup to the girl and then she gives it to the doll the she thanks you for the cup
+
+
+
+---
+{&lt;!-- Options --&gt;
+[* [[ive given you the cup can you open the door now]]]
+[* [[i gave you a cup now can i join the tea party ]]]
+[* [[ that cup was for me not the doll i wanted to join the tea party]]]
+}
+
+</tw-passagedata><tw-passagedata pid="23" name="Untitled Passage" tags="" position="143.33333333333331,185.83333333333346" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="24" name="ask to join the tea party" tags="" position="2288.333333333333,1694.9999999999998" size="100,100">&lt;!-- 
+                   N
+			   &lt; W + E &gt;
+				   S
+
+
+  &#96;-----------------------------------------##-------&#96;
+  &#96;|              |                 |       d5       |&#96;
+  &#96;#d1            #d2               #d3             #d4&#96;
+  &#96;|              |                 |                |&#96;
+  &#96;|              |                 |                |&#96;
+  &#96;---------------------------------------------------&#96;
+--&gt;
+&lt;!-- Title --&gt;
+# am i invited?
+&lt;!--Description --&gt;
+&quot;of course but you need a cup first do you have a cup?&quot;
+
+
+
+
+---
+{&lt;!-- Options --&gt;
+[* [[yes]]]
+[* [[no ]]]
+}
+
+</tw-passagedata><tw-passagedata pid="25" name="can you open the door please" tags="" position="2098.333333333333,1693.3333333333337" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="26" name="ive given you the cup can you open the door now" tags="" position="1421.6666666666665,2035.0000000000002" size="100,100">&lt;!-- 
+                   N
+			   &lt; W + E &gt;
+				   S
+
+
+  &#96;-----------------------------------------##-------&#96;
+  &#96;|              |                 |       d5       |&#96;
+  &#96;#d1            #d2               #d3             #d4&#96;
+  &#96;|              |                 |                |&#96;
+  &#96;|              |                 |                |&#96;
+  &#96;---------------------------------------------------&#96;
+--&gt;
+&lt;!-- Title --&gt;
+#
+&lt;!--Description --&gt;
+&quot;no i&#39;l not open the door&quot; the girl says
+
+
+---
+{&lt;!-- Options --&gt;
+[* [[stop talking-&gt;falling asleep]]]
+}
+
+</tw-passagedata><tw-passagedata pid="27" name="i gave you a cup now can i join the tea party " tags="" position="1628.333333333333,2048.333333333334" size="100,100">&lt;!-- 
+                   N
+			   &lt; W + E &gt;
+				   S
+
+
+  &#96;-----------------------------------------##-------&#96;
+  &#96;|              |                 |       d5       |&#96;
+  &#96;#d1            #d2               #d3             #d4&#96;
+  &#96;|              |                 |                |&#96;
+  &#96;|              |                 |                |&#96;
+  &#96;---------------------------------------------------&#96;
+--&gt;
+&lt;!-- Title --&gt;
+# 
+&lt;!--Description --&gt;
+&quot;well you didnt ask to join the tea party you just gave me a cup thats not the same sorry but its too late&quot;  she says
+
+
+
+---
+{&lt;!-- Options --&gt;
+[* [[ stop talking-&gt;falling asleep]]]
+}
+
+</tw-passagedata><tw-passagedata pid="28" name=" that cup was for me not the doll i wanted to join the tea party" tags="" position="1900.0000000000002,2055.0000000000005" size="100,100">&lt;!-- 
+                   N
+			   &lt; W + E &gt;
+				   S
+
+
+  &#96;-----------------------------------------##-------&#96;
+  &#96;|              |                 |       d5       |&#96;
+  &#96;#d1            #d2               #d3             #d4&#96;
+  &#96;|              |                 |                |&#96;
+  &#96;|              |                 |                |&#96;
+  &#96;---------------------------------------------------&#96;
+--&gt;
+&lt;!-- Title --&gt;
+# 
+&lt;!--Description --&gt;
+&quot;im sorry i didnt know you wanted to join the tea party its too late now there already here&quot; she said 
+
+
+
+---
+{&lt;!-- Options --&gt;
+[* [[ how are already here?]]]
+[* [[ stop talking-&gt;terror]]]
+}
+
+</tw-passagedata><tw-passagedata pid="29" name=" how are already here?" tags="" position="1863.3333333333337,2298.3333333333335" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="30" name="terror" tags="" position="2306.666666666667,2293.333333333333" size="100,100">&lt;!-- 
+                   N
+			   &lt; W + E &gt;
+				   S
+
+
+  &#96;-----------------------------------------##-------&#96;
+  &#96;|              |                 |       d5       |&#96;
+  &#96;#d1            #d2               #d3             #d4&#96;
+  &#96;|              |                 |                |&#96;
+  &#96;|              |                 |                |&#96;
+  &#96;---------------------------------------------------&#96;
+--&gt;
+&lt;!-- Title --&gt;
+# 
+&lt;!--Description --&gt;
+you find yourself all tied up with rope and being pulled by to heavily armed guards
+
+
+---
+{&lt;!-- Options --&gt;
+(set: $free to (either: true,false )) 
+
+(if: $free is true)[[[try and break free-&gt;You escape]]] 
+(if: $free is false)[[[try and break free-&gt;oof]]] 
+
+
+</tw-passagedata><tw-passagedata pid="31" name="You escape" tags="" position="2180.000000000001,2373.3333333333335" size="100,100">you manage to break free from the ropes as soon as they got you out of the 3 rooms.
+
+maybe you will survive  </tw-passagedata><tw-passagedata pid="32" name="oof" tags="" position="2420.000000000001,2165" size="100,100">you dont manage to break break the ropes instead you
+[* [[wake up-&gt;The Interrogation room]] </tw-passagedata><tw-passagedata pid="33" name="falling asleep" tags="" position="1531.6666666666663,2306.6666666666674" size="100,100">you find yourself faling asleep in the room 
+[* [[wake up-&gt;terror]]]</tw-passagedata><tw-passagedata pid="34" name="yes" tags="" position="2271.6666666666665,1846.6666666666665" size="100,100">&lt;!-- 
+                   N
+			   &lt; W + E &gt;
+				   S
+
+
+  &#96;-----------------------------------------##-------&#96;
+  &#96;|              |                 |       d5       |&#96;
+  &#96;#d1            #d2               #d3             #d4&#96;
+  &#96;|              |                 |                |&#96;
+  &#96;|              |                 |                |&#96;
+  &#96;---------------------------------------------------&#96;
+--&gt;
+&lt;!-- Title --&gt;
+# yes
+&lt;!--Description --&gt;
+&quot;oh you do have a tea cup amazing now let me serve you some tea&quot; she says as she pours tea in your tea cup.  
+
+
+{ &lt;!-- Doors and exits --&gt;
+There is a door to the east.\
+(if: $d2 is &quot;open&quot;) [The door is open.] (else:) [The door is locked.]
+}
+---
+{&lt;!-- Options --&gt;
+[* [[ drink tea-&gt;door opend]]]
+}
+
+</tw-passagedata><tw-passagedata pid="35" name="no " tags="" position="2389.9999999999995,1823.333333333333" size="100,100">&lt;!-- 
+                   N
+			   &lt; W + E &gt;
+				   S
+
+
+  &#96;-----------------------------------------##-------&#96;
+  &#96;|              |                 |       d5       |&#96;
+  &#96;#d1            #d2               #d3             #d4&#96;
+  &#96;|              |                 |                |&#96;
+  &#96;|              |                 |                |&#96;
+  &#96;---------------------------------------------------&#96;
+--&gt;
+&lt;!-- Title --&gt;
+# what kind of person are you lying to a child
+&lt;!--Description --&gt;
+&quot;are you sure &quot; the girl says with a puzzeld face &quot;let me search your pockets she says as she finds a tea cup in your poket &quot;YOU WERE LYING,YOU LIAR!&quot;she says
+
+
+---
+{&lt;!-- Options --&gt;
+[* [[im sorry ]]]
+[* [[ stop talking-&gt;muffled voise]]]
+}
+
+</tw-passagedata><tw-passagedata pid="36" name="im sorry " tags="" position="2560.000000000001,2019.9999999999998" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="37" name="muffled voise" tags="" position="2276.6666666666674,2053.333333333333" size="100,100">she continues to shout at you but you pass out 
+[* [[wake up-&gt;terror]] </tw-passagedata><tw-passagedata pid="38" name="door opend" tags="" position="2143.3333333333344,1873.333333333333" size="100,100">&lt;!-- 
+                   N
+			   &lt; W + E &gt;
+				   S
+
+
+  &#96;-----------------------------------------##-------&#96;
+  &#96;|              |                 |       d5       |&#96;
+  &#96;#d1            #d2               #d3             #d4&#96;
+  &#96;|              |                 |                |&#96;
+  &#96;|              |                 |                |&#96;
+  &#96;---------------------------------------------------&#96;
+--&gt;
+&lt;!-- Title --&gt;
+# 
+&lt;!--Description --&gt;
+you finish drinking your tea and she opens the door for you and thanks you for having tea with you
+(set:$d3 to &quot;open&quot;)
+
+
+---
+{&lt;!-- Options --&gt;
+* [[ say thanks for the cup of tea and move into room 3-&gt;The Third Room]]
+* [[stop talking-&gt;The Second Room]] 
+}
+
+</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
