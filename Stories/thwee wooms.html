@@ -70,7 +70,7 @@ It&#39;s completely dark. You can&#39;t see anything.
 
 ]
 
-</tw-passagedata><tw-passagedata pid="4" name="The Interrogation room" tags="" position="3293.3333333333335,1290.3333333333333" size="100,100">you find yourself in white room with 3 speakers. for some reason your mouth doesn&#39;t work and you can&#39;t move your sitting on a metal chair with a white table in front of you, suddenly the speakers start  crackle and a grumpy voise says &quot;we expected more from you john&quot;
+</tw-passagedata><tw-passagedata pid="4" name="The Interrogation room" tags="" position="3411.3333333333335,1166.6666666666667" size="100,100">you find yourself in white room with 3 speakers. for some reason your mouth doesn&#39;t work and you can&#39;t move your sitting on a metal chair with a white table in front of you, suddenly the speakers start  crackle and a grumpy voise says &quot;we expected more from you john&quot;
 &lt;img src=https://i.imgur.com/r6ZxJ3C.pngwidth=&quot;500&quot; width=&quot;100%&quot; alt=&quot;Two foxes&quot;&gt;</tw-passagedata><tw-passagedata pid="5" name="Daniel" tags="" position="872,1510" size="200,100">&lt;!-- 
                    N
 			   &lt; W + E &gt;
@@ -109,14 +109,40 @@ The boy asks,&quot;Do you know were my teddy bear is?&quot;
 
 }
 
-</tw-passagedata><tw-passagedata pid="6" name="The bin" tags="" position="436,851" size="100,200">&lt;!-- 
+</tw-passagedata><tw-passagedata pid="6" name="The bin" tags="" position="432.66666666666663,844.3333333333334" size="100,200">&lt;!-- 
   &#96;-----------------------------------------##-------&#96;
   &#96;|              |                 |       d5       |&#96;
   &#96;#d1    X       #d2               #d3             #d4&#96;
   &#96;|              |                 |                |&#96;
   &#96;|              |                 |                |&#96;
   &#96;---------------------------------------------------&#96;
---&gt;
+--&gt;{
+(set: $seePhoto to false)
+(set: $seeBook to false)
+(set: $seekeycard to false)
+(set: $seeteddy to false)
+(set: $seecup to false)
+(set: $seeNothing to true)
+
+(if: (history:) contains &quot;The bin&quot;)[ 
+(if: not $photo)[(set: $seePhoto to (random: 1,6) is 6)]
+(if: not $book)[(set: $seeBook to (random: 1,6) is 6)]
+(if: not $keycard)[(set: $seekeycard to (random: 1,6) is 6)]
+(if: not $teddy)[(set: $seeteddy to (random: 1,6) is 6)]
+(if: not $cup)[(set: $seecup to (random: 1,6) is 6)]
+
+(if: $seePhoto or $seeBook or $seecup or $seeteddy or $seekeycard )[(set: $seeNothing to false)]
+]
+}
+(if: $seeNothing)[
+&lt;!-- Title --&gt;
+#  nothing to see here  
+&lt;!--Description --&gt;
+ this is not what your looking for.
+
+Inside the bin you find nothing but rubbish
+]
+(else:)[
 &lt;!-- Title --&gt;
 # The Bin 
 &lt;!--Description --&gt;
@@ -124,21 +150,24 @@ This is a big, dusty, smelly bin.
 
 Inside the bin you find:
 {
-(if: not $photo)[* An old photograph]
-(if: not $book)[* An dusty book]
-(if: not $keycard)[* a keycard]
-(if: not $teddy)[* an old teddy]
-(if: not $cup)[* a tea cup]
+(if: not $photo and $seePhoto)[* An old photograph]
+(if: not $book and $seeBook)[* An dusty book]
+(if: not $keycard and $seekeycard)[* a keycard]
+(if: not $teddy and $seeteddy)[* an old teddy]
+(if: not $cup and $seecup)[* a tea cup]
 }
+]
+
 
 ---
 {&lt;!-- Options --&gt;
-(if: not $photo) [* [[Get the photo-&gt;The photograph]]]
-(if: not $book) [* [[Get the book-&gt;The book]]]
-(if: not $teddy) [* [[get the teddy bear-&gt;my teddy]]]
-(if: not $keycard) [* [[get keycard-&gt;my keycard]]] 
-(if: not $cup) [* [[ get cup-&gt;cup]]]
-[[Get out of the bin-&gt;The First room]]
+(if: not $photo and $seePhoto) [* [[Get the photo-&gt;The photograph]]]
+(if: not $book and $seeBook) [* [[Get the book-&gt;The book]]]
+(if: not $teddy and $seeteddy) [* [[get the teddy bear-&gt;my teddy]]]
+(if: not $keycard and $seekeycard) [* [[get keycard-&gt;my keycard]]] 
+(if: not $cup and $seecup) [* [[ get cup-&gt;cup]]]
+* [[Keep looking through the rubbish-&gt;The bin]]
+* [[Get out of the bin-&gt;The First room]]
 }
 
 </tw-passagedata><tw-passagedata pid="7" name="template" tags="" position="260,17" size="100,100">&lt;!-- 
@@ -243,12 +272,9 @@ survive
 # room 2 
 &lt;!--Description --&gt;
 
-(if: $d3 is &quot;open&quot; and $air is true)[(set: $phase=&quot;end&quot;)]
-(else-if: $d3 is &quot;open&quot; and $air is not true)[(set: $phase=&quot;middle&quot;)]
-(else:)[(set: $phase=&quot;start&quot;)]
 
-(if: $phase is &quot;start&quot;)[
-there is a girl in the corner playing with a doll and a tea set in the room . the rest of the room is empty.
+There is a girl in the corner playing with a doll and a tea set in the room . the rest of the room is empty.
+
 
 { &lt;!-- Doors and exits --&gt;
 There is a door to the west.\
@@ -271,7 +297,7 @@ There is a door to the east.\
 
 
 
-</tw-passagedata><tw-passagedata pid="15" name="The Third Room" tags="" position="2540.6666666666665,866" size="200,200">&lt;!-- 
+</tw-passagedata><tw-passagedata pid="15" name="The Third Room" tags="" position="2540,866" size="200,200">&lt;!-- 
                    N
 			   &lt; W + E &gt;
 				   S
@@ -304,12 +330,13 @@ There is a door to the north.\
 ---
 {&lt;!-- Options --&gt;
 * [[Look at the air vent-&gt;Air Vent]]
+* [[look at the door to the east]]
 [* [[go west to room 2-&gt;The Second Room]]] 
-(if: $d4 is &quot;open&quot;)[* [[Go east-&gt;The Interrogation room]] ]]] 
+(if: $d4 is &quot;open&quot;)[* [[Go east-&gt;The Interrogation room]] ]
 (if: $d5 is &quot;open&quot;)[* [[Go north-&gt;The end?]]] 
 }
 
-</tw-passagedata><tw-passagedata pid="16" name="yes I have it" tags="" position="968.6666666666666,1668.3333333333333" size="100,100">&lt;!-- 
+</tw-passagedata><tw-passagedata pid="16" name="yes I have it" tags="" position="968,1668" size="100,100">&lt;!-- 
                    N
 			   &lt; W + E &gt;
 				   S
@@ -340,7 +367,7 @@ You give the teddy to Daniel.(set: $boy_mode to &quot;has teddy&quot;)
 
 </tw-passagedata><tw-passagedata pid="17" name="I can help you find it" tags="" position="617,1571" size="100,100">No its my teddybear I find it
 
-[[Stop taking-&gt;The First room]] </tw-passagedata><tw-passagedata pid="18" name="why would I care about a teddy bear" tags="" position="458.33333333333326,1577.6666666666667" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="19" name=" now I&#39;ve given you your teddy bear now can you open the door please?" tags="" position="1115.6666666666667,1678" size="100,100">&lt;!-- 
+[[Stop taking-&gt;The First room]] </tw-passagedata><tw-passagedata pid="18" name="why would I care about a teddy bear" tags="" position="458,1577" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="19" name=" now I&#39;ve given you your teddy bear now can you open the door please?" tags="" position="1115,1678" size="100,100">&lt;!-- 
                    N
 			   &lt; W + E &gt;
 				   S
@@ -367,7 +394,7 @@ daniel turns the the teddy around and unzips the zip on the back of the teddy th
 
 }
 (set:$d2 to &quot;open&quot;)
-</tw-passagedata><tw-passagedata pid="20" name="try and break down the door" tags="" position="1856,1385" size="100,100">&lt;!-- 
+</tw-passagedata><tw-passagedata pid="20" name="try and break down the door" tags="" position="1857.6666666666667,1396.6666666666667" size="100,100">&lt;!-- 
                    N
 			   &lt; W + E &gt;
 				   S
@@ -461,7 +488,7 @@ you give the cup to the girl and then she gives it to the doll the she thanks yo
 [* [[ that cup was for me not the doll i wanted to join the tea party]]]
 }
 
-</tw-passagedata><tw-passagedata pid="22" name="Untitled Passage" tags="" position="143,185" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="23" name="ask to join the tea party" tags="" position="2288,1694" size="100,100">&lt;!-- 
+</tw-passagedata><tw-passagedata pid="23" name="Untitled Passage" tags="" position="143,185" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="24" name="ask to join the tea party" tags="" position="2288,1694" size="100,100">&lt;!-- 
                    N
 			   &lt; W + E &gt;
 				   S
@@ -488,7 +515,7 @@ you give the cup to the girl and then she gives it to the doll the she thanks yo
 [* [[no ]]]
 }
 
-</tw-passagedata><tw-passagedata pid="24" name="can you open the door please" tags="" position="2098,1693" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="25" name="ive given you the cup can you open the door now" tags="" position="1421,2035" size="100,100">&lt;!-- 
+</tw-passagedata><tw-passagedata pid="25" name="can you open the door please" tags="" position="2026.3333333333333,1653" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="26" name="ive given you the cup can you open the door now" tags="" position="1421,2035" size="100,100">&lt;!-- 
                    N
 			   &lt; W + E &gt;
 				   S
@@ -512,7 +539,7 @@ you give the cup to the girl and then she gives it to the doll the she thanks yo
 [* [[stop talking-&gt;falling asleep]]]
 }
 
-</tw-passagedata><tw-passagedata pid="26" name="i gave you a cup now can i join the tea party " tags="" position="1628,2048" size="100,100">&lt;!-- 
+</tw-passagedata><tw-passagedata pid="27" name="i gave you a cup now can i join the tea party " tags="" position="1628,2048" size="100,100">&lt;!-- 
                    N
 			   &lt; W + E &gt;
 				   S
@@ -563,7 +590,7 @@ you give the cup to the girl and then she gives it to the doll the she thanks yo
 [* [[ stop talking-&gt;terror]]]
 }
 
-</tw-passagedata><tw-passagedata pid="29" name=" how are already here?" tags="" position="1764.6666666666665,2368" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="30" name="terror" tags="" position="2306,2293" size="100,100">&lt;!-- 
+</tw-passagedata><tw-passagedata pid="29" name=" how are already here?" tags="" position="1764,2368" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="30" name="terror" tags="" position="2306,2293" size="100,100">&lt;!-- 
                    N
 			   &lt; W + E &gt;
 				   S
@@ -617,7 +644,7 @@ you find yourself all tied up with rope and being pulled by to heavily armed gua
 [* [[ drink tea-&gt;door opend]]]
 }
 
-</tw-passagedata><tw-passagedata pid="34" name="no " tags="" position="2389,1823" size="100,100">&lt;!-- 
+</tw-passagedata><tw-passagedata pid="35" name="no " tags="" position="2389,1823" size="100,100">&lt;!-- 
                    N
 			   &lt; W + E &gt;
 				   S
@@ -641,8 +668,8 @@ you find yourself all tied up with rope and being pulled by to heavily armed gua
 [* [[I&#39;m sorry-&gt;muffled voise]]]
 }
 
-</tw-passagedata><tw-passagedata pid="35" name="im sorry " tags="" position="2560,2019" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="36" name="muffled voise" tags="" position="2276,2053" size="100,100">she continues to shout at you but you pass out 
-[* [[wake up-&gt;terror]] </tw-passagedata><tw-passagedata pid="37" name="door opend" tags="" position="2143,1873" size="100,100">&lt;!-- 
+</tw-passagedata><tw-passagedata pid="36" name="im sorry " tags="" position="2653.3333333333335,2079" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="37" name="muffled voise" tags="" position="2276,2053" size="100,100">she continues to shout at you but you pass out 
+[* [[wake up-&gt;terror]] </tw-passagedata><tw-passagedata pid="38" name="door opend" tags="" position="2143,1873" size="100,100">&lt;!-- 
                    N
 			   &lt; W + E &gt;
 				   S
@@ -669,12 +696,12 @@ you finish drinking your tea and she opens the door for you and thanks you for h
 * [[stop talking-&gt;The Second Room]] 
 }
 
-</tw-passagedata><tw-passagedata pid="39" name="Air Vent" tags="" position="2867.6666666666665,611" size="100,100">The air vent is tiny. You can see that the vent leads to nearby offices. But you are too fat to fit through it. 
+</tw-passagedata><tw-passagedata pid="39" name="Air Vent" tags="" position="2867,611" size="100,100">The air vent is tiny. You can see that the vent leads to nearby offices. But you are too fat to fit through it. 
 
 [[Take your head out of the vent-&gt;The Third Room]] 
 
 (set: $air to true)
-(set: $girl_mode to &quot;end&quot;)</tw-passagedata><tw-passagedata pid="40" name="The end?" tags="" position="2627.6666666666665,566" size="100,100">(color: &quot;#FF0000&quot;)[(background: &quot;#ffffff&quot;)[
+(set: $girl_mode to &quot;end&quot;)</tw-passagedata><tw-passagedata pid="40" name="The end?" tags="" position="2627,566" size="100,100">(color: &quot;#FF0000&quot;)[(background: &quot;#ffffff&quot;)[
 
 You escaped, the ...
 
@@ -686,8 +713,7 @@ You escaped, the ...
 
 
 (t8n: &quot;flicker&quot;)[The end.]
-]]</tw-passagedata>
-<tw-passagedata pid="40" name="MAE middle" tags="" position="1696,1410" size="100,100">middle</tw-passagedata><tw-passagedata pid="41" name="MAE end" tags="" position="1698,1527" size="100,100">end</tw-passagedata><tw-passagedata pid="42" name="look at the door to the east" tags="" position="3025.666666666667,1082.6666666666665" size="100,100">. &lt;!-- 
+]]</tw-passagedata><tw-passagedata pid="41" name="MAE middle" tags="" position="1696,1410" size="100,100">middle</tw-passagedata><tw-passagedata pid="42" name="MAE end" tags="" position="1698,1527" size="100,100">end</tw-passagedata><tw-passagedata pid="43" name="look at the door to the east" tags="" position="2906.6666666666665,1240.3333333333333" size="100,100">. &lt;!-- 
   N
 &lt; W + E &gt;
 S
@@ -712,8 +738,7 @@ You walk closer to the door and you see a keycard reader next to it.(if:$keycard
 * [[stop looking at the door-&gt;The Third Room]] 
 }
 
-</tw-passagedata>
-<tw-passagedata pid="41" name="Ask if Mae can help you with the air vent" tags="" position="2502.3333333333335,1446" size="100,100">(set: $d5 to &quot;open&quot;)
+</tw-passagedata><tw-passagedata pid="44" name="Ask if Mae can help you with the air vent" tags="" position="2502,1446" size="100,100">(set: $d5 to &quot;open&quot;)
 
 you ask Mae if she can go through the air vent for you. she says no but that she will ask her brother. she runs out of the room and a moment later daniel runs through into room 3.
 
