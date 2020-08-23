@@ -32,7 +32,8 @@ Go back to sleep(click: &quot;Go back to sleep&quot;)[
   (goto: &quot;The Interrogation room&quot;) ]
 ]
 
-</tw-passagedata><tw-passagedata pid="2" name="Inventory" tags="footer" position="115,483" size="200,100">---
+</tw-passagedata><tw-passagedata pid="2" name="Inventory" tags="footer" position="115,483" size="200,100">
+---
 &lt;!--  See [[Start]] room for the variables --&gt;
 ##### Inventory
 {
@@ -101,7 +102,6 @@ The boy asks,&quot;Do you know were my teddy bear is?&quot;
 { &lt;!-- Things to do --&gt;
 (if: $teddy is true and $boy_mode is &quot;no teddy&quot; )[* [[yes I have it]] ]
 (if: $teddy is false)[* [[I can help you find it]] ]
-* [[why would I care about a teddy bear]]
 * [[Stop talking -&gt;The First room]]
 }
 ---
@@ -223,6 +223,10 @@ survive
 
 
 (set: $boy_mode to &quot;no teddy&quot;)
+(set: $girl_mode to &quot;start&quot;)
+
+(set: $air to false)
+
 </tw-passagedata><tw-passagedata pid="14" name="The Second Room" tags="" position="1923,829" size="200,200">&lt;!-- 
                    N
 			   &lt; W + E &gt;
@@ -249,6 +253,7 @@ there is a girl in the corner playing with a doll and a tea set in the room . th
 { &lt;!-- Doors and exits --&gt;
 There is a door to the west.\
 (if: $d2 is &quot;open&quot;) [The door is open.] (else:) [The door is locked.]
+
 There is a door to the east.\
 (if: $d3 is &quot;open&quot;) [The door is open.] (else:) [The door is locked.]
 }
@@ -278,18 +283,18 @@ There is a door to the east.\
   &#96;---------------------------------------------------&#96;
 --&gt;
 &lt;!-- Title --&gt;
-# The third room
+# The Third Room
 &lt;!--Description --&gt;
-There is is an empty room with three doors. There is an air vent in the corner. 
-
-
+This room is empty. There is an air vent in the corner. 
 
 
 { &lt;!-- Doors and exits --&gt;
 There is a door to the west.\
 (if: $d3 is &quot;open&quot;) [The door is open.] (else:) [The door is locked.]
+
 There is a door to the east.\
 (if: $d4 is &quot;open&quot;) [The door is open.] (else:) [The door is locked.]
+
 There is a door to the north.\
 (if: $d5 is &quot;open&quot;) [The door is open.] (else:) [The door is locked.]
 
@@ -298,12 +303,13 @@ There is a door to the north.\
 
 ---
 {&lt;!-- Options --&gt;
-[* [[Look at the air vent-&gt;Air Vent]]]
-[* [[look at the door to the east]]]
-[* [[look at the door to the west]]]
+* [[Look at the air vent-&gt;Air Vent]]
+[* [[go west to room 2-&gt;The Second Room]]] 
+(if: $d4 is &quot;open&quot;)[* [[Go east-&gt;The Interrogation room]] ]]] 
+(if: $d5 is &quot;open&quot;)[* [[Go north-&gt;The end?]]] 
 }
 
-</tw-passagedata><tw-passagedata pid="16" name="yes I have it" tags="" position="1062,1715" size="100,100">&lt;!-- 
+</tw-passagedata><tw-passagedata pid="16" name="yes I have it" tags="" position="968.6666666666666,1668.3333333333333" size="100,100">&lt;!-- 
                    N
 			   &lt; W + E &gt;
 				   S
@@ -321,7 +327,6 @@ There is a door to the north.\
 &lt;!--Description --&gt;
 You give the teddy to Daniel.(set: $boy_mode to &quot;has teddy&quot;)  
 
-Dan sez...
 
 
 
@@ -333,7 +338,9 @@ Dan sez...
 
 }
 
-</tw-passagedata><tw-passagedata pid="17" name="I can help you find it" tags="" position="617,1571" size="100,100">thank you so mu</tw-passagedata><tw-passagedata pid="18" name="why would I care about a teddy bear" tags="" position="1240,1566" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="19" name=" now I&#39;ve given you your teddy bear now can you open the door please?" tags="" position="834,1793" size="100,100">&lt;!-- 
+</tw-passagedata><tw-passagedata pid="17" name="I can help you find it" tags="" position="617,1571" size="100,100">No its my teddybear I find it
+
+[[Stop taking-&gt;The First room]] </tw-passagedata><tw-passagedata pid="18" name="why would I care about a teddy bear" tags="" position="458.33333333333326,1577.6666666666667" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="19" name=" now I&#39;ve given you your teddy bear now can you open the door please?" tags="" position="1115.6666666666667,1678" size="100,100">&lt;!-- 
                    N
 			   &lt; W + E &gt;
 				   S
@@ -360,7 +367,34 @@ daniel turns the the teddy around and unzips the zip on the back of the teddy th
 
 }
 (set:$d2 to &quot;open&quot;)
-</tw-passagedata><tw-passagedata pid="20" name="mae" tags="" position="2109,1406" size="200,100">&lt;!-- 
+</tw-passagedata><tw-passagedata pid="20" name="try and break down the door" tags="" position="1856,1385" size="100,100">&lt;!-- 
+                   N
+			   &lt; W + E &gt;
+				   S
+
+
+  &#96;-----------------------------------------##-------&#96;
+  &#96;|              |                 |       d5       |&#96;
+  &#96;#d1            #d2               #d3             #d4&#96;
+  &#96;|              |                 |                |&#96;
+  &#96;|              |                 |                |&#96;
+  &#96;---------------------------------------------------&#96;
+--&gt;
+&lt;!-- Title --&gt;
+# 
+&lt;!--Description --&gt;
+
+
+{ &lt;!-- Doors and exits --&gt;
+There is a door to the east.\
+(if: $d2 is &quot;open&quot;) [The door is open.] (else:) [The door is locked.]
+}
+---
+{&lt;!-- Options --&gt;
+
+}
+
+</tw-passagedata><tw-passagedata pid="21" name="mae" tags="" position="2109,1406" size="200,100">&lt;!-- 
                    N
 			   &lt; W + E &gt;
 				   S
@@ -376,19 +410,31 @@ daniel turns the the teddy around and unzips the zip on the back of the teddy th
 &lt;!-- Title --&gt;
 # your not invited 
 &lt;!--Description --&gt;
+(if: $girl_mode is &quot;end&quot;)[
+Mae is busy with her tea party.
+]
+(else-if: $girl_mode is &quot;middle&quot;)[
+Mae is busy with her tea party. You&#39;re not invited. 
+]
+(else:) [
 you walk closer to the child as she serves the doll tea with here tea cup once she finished serving the doll she bigins to talk,&quot;im very sorry but we dont have any tea cups and your not invited&quot;
+
+]
+
 
 
 ---
 {&lt;!-- Options --&gt;
+(if: $girl_mode is &quot;end&quot;)[
+[[Ask if Mae can help you with the air vent]]
+]
+(else-if: $girl_mode is &quot;start&quot;)[
 (if:$cup is true)[* [[give cup]]]
 (if:$cup is true)[* [[ask to join the tea party]]]
-[* [[ stop talking-&gt;The Second Room]] ]]]
-[* [[can you open the door please]]]
-
+]
+[* [[ stop talking-&gt;The Second Room]]  ]
 }
-
-</tw-passagedata><tw-passagedata pid="21" name="give cup" tags="" position="1531,1868" size="100,100">&lt;!-- 
+</tw-passagedata><tw-passagedata pid="22" name="give cup" tags="" position="1531,1868" size="100,100">&lt;!-- 
                    N
 			   &lt; W + E &gt;
 				   S
@@ -491,7 +537,7 @@ you give the cup to the girl and then she gives it to the doll the she thanks yo
 [* [[ stop talking-&gt;falling asleep]]]
 }
 
-</tw-passagedata><tw-passagedata pid="27" name=" that cup was for me not the doll i wanted to join the tea party" tags="" position="1900,2055" size="100,100">&lt;!-- 
+</tw-passagedata><tw-passagedata pid="28" name=" that cup was for me not the doll i wanted to join the tea party" tags="" position="1900,2055" size="100,100">&lt;!-- 
                    N
 			   &lt; W + E &gt;
 				   S
@@ -513,11 +559,11 @@ you give the cup to the girl and then she gives it to the doll the she thanks yo
 
 ---
 {&lt;!-- Options --&gt;
-[* [[ how are already here?]]]
+
 [* [[ stop talking-&gt;terror]]]
 }
 
-</tw-passagedata><tw-passagedata pid="28" name=" how are already here?" tags="" position="1863,2298" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="29" name="terror" tags="" position="2306,2293" size="100,100">&lt;!-- 
+</tw-passagedata><tw-passagedata pid="29" name=" how are already here?" tags="" position="1764.6666666666665,2368" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="30" name="terror" tags="" position="2306,2293" size="100,100">&lt;!-- 
                    N
 			   &lt; W + E &gt;
 				   S
@@ -544,11 +590,10 @@ you find yourself all tied up with rope and being pulled by to heavily armed gua
 (if: $free is false)[[[try and break free-&gt;oof]]] 
 
 
-</tw-passagedata><tw-passagedata pid="30" name="You escape" tags="" position="2180,2373" size="100,100">you manage to break free from the ropes as soon as they got you out of the 3 rooms.
-
-maybe you will survive  </tw-passagedata><tw-passagedata pid="31" name="oof" tags="" position="2420,2165" size="100,100">you dont manage to break break the ropes instead you
-[* [[wake up-&gt;The Interrogation room]] </tw-passagedata><tw-passagedata pid="32" name="falling asleep" tags="" position="1531,2306" size="100,100">you find yourself faling asleep in the room 
-[* [[wake up-&gt;terror]]]</tw-passagedata><tw-passagedata pid="33" name="yes" tags="" position="2271,1846" size="100,100">&lt;!-- 
+</tw-passagedata><tw-passagedata pid="31" name="You escape" tags="" position="2180,2373" size="100,100">you manage to break free from the ropes as soon as they got you out of the 3 rooms.
+(set: $light to false)
+[[maybe you will survive-&gt;The First room]]  </tw-passagedata><tw-passagedata pid="32" name="oof" tags="" position="2420,2165" size="100,100">you dont manage to break the ropes, instead you [[wake up-&gt;The Interrogation room]] </tw-passagedata><tw-passagedata pid="33" name="falling asleep" tags="" position="1531,2306" size="100,100">you find yourself faling asleep in the room 
+[* [[wake up-&gt;terror]]]</tw-passagedata><tw-passagedata pid="34" name="yes" tags="" position="2271,1846" size="100,100">&lt;!-- 
                    N
 			   &lt; W + E &gt;
 				   S
@@ -567,10 +612,6 @@ maybe you will survive  </tw-passagedata><tw-passagedata pid="31" name="oof" tag
 &quot;oh you do have a tea cup amazing now let me serve you some tea&quot; she says as she pours tea in your tea cup.  
 
 
-{ &lt;!-- Doors and exits --&gt;
-There is a door to the east.\
-(if: $d2 is &quot;open&quot;) [The door is open.] (else:) [The door is locked.]
-}
 ---
 {&lt;!-- Options --&gt;
 [* [[ drink tea-&gt;door opend]]]
@@ -597,8 +638,7 @@ There is a door to the east.\
 
 ---
 {&lt;!-- Options --&gt;
-[* [[im sorry ]]]
-[* [[ stop talking-&gt;muffled voise]]]
+[* [[I&#39;m sorry-&gt;muffled voise]]]
 }
 
 </tw-passagedata><tw-passagedata pid="35" name="im sorry " tags="" position="2560,2019" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="36" name="muffled voise" tags="" position="2276,2053" size="100,100">she continues to shout at you but you pass out 
@@ -620,6 +660,7 @@ There is a door to the east.\
 &lt;!--Description --&gt;
 you finish drinking your tea and she opens the door for you and thanks you for having tea with you
 (set:$d3 to &quot;open&quot;)
+(set: $girl_mode to &quot;middle&quot;)
 
 
 ---
@@ -628,35 +669,36 @@ you finish drinking your tea and she opens the door for you and thanks you for h
 * [[stop talking-&gt;The Second Room]] 
 }
 
-</tw-passagedata><tw-passagedata pid="38" name="Air Vent" tags="" position="2921,654" size="100,100">This is a small air vent. You are too fat to fit through. 
+</tw-passagedata><tw-passagedata pid="39" name="Air Vent" tags="" position="2867.6666666666665,611" size="100,100">The air vent is tiny. You can see that the vent leads to nearby offices. But you are too fat to fit through it. 
+
+[[Take your head out of the vent-&gt;The Third Room]] 
 
 (set: $air to true)
+(set: $girl_mode to &quot;end&quot;)</tw-passagedata><tw-passagedata pid="40" name="The end?" tags="" position="2627.6666666666665,566" size="100,100">(color: &quot;#FF0000&quot;)[(background: &quot;#ffffff&quot;)[
 
-[[back to room 3-&gt;The Third Room]] </tw-passagedata><tw-passagedata pid="39" name="MAE - start" tags="" position="1696,1297" size="100,100">there is a girl in the corner playing with a doll and a tea set in the room . the rest of the room is empty.
-
-{ &lt;!-- Doors and exits --&gt;
-There is a door to the west.\
-(if: $d2 is &quot;open&quot;) [The door is open.] (else:) [The door is locked.]
-There is a door to the east.\
-(if: $d3 is &quot;open&quot;) [The door is open.] (else:) [The door is locked.]
-}
----
-{&lt;!-- Options --&gt;
-[* [[walk closer to the child-&gt;mae]]] 
-[* [[go west to room 1-&gt;The First room]]] 
-(if: $d3 is &quot;open&quot;)[* [[go east to room 3 -&gt;The Third Room]]] 
-}</tw-passagedata><tw-passagedata pid="40" name="MAE middle" tags="" position="1696,1410" size="100,100">middle</tw-passagedata><tw-passagedata pid="41" name="MAE end" tags="" position="1698,1527" size="100,100">end</tw-passagedata><tw-passagedata pid="42" name="look at the door to the east" tags="" position="3025.666666666667,1082.6666666666665" size="100,100">. &lt;!-- 
-                   N
-			   &lt; W + E &gt;
-				   S
+You escaped, the ...
 
 
-  &#96;-----------------------------------------##-------&#96;
-  &#96;|              |                 |       d5       |&#96;
-  &#96;#d1            #d2               #d3             #d4&#96;
-  &#96;|              |                 |                |&#96;
-  &#96;|              |                 |                |&#96;
-  &#96;---------------------------------------------------&#96;
+
+(alert: &quot;Error 43&quot;)
+
+
+
+
+(t8n: &quot;flicker&quot;)[The end.]
+]]</tw-passagedata>
+<tw-passagedata pid="40" name="MAE middle" tags="" position="1696,1410" size="100,100">middle</tw-passagedata><tw-passagedata pid="41" name="MAE end" tags="" position="1698,1527" size="100,100">end</tw-passagedata><tw-passagedata pid="42" name="look at the door to the east" tags="" position="3025.666666666667,1082.6666666666665" size="100,100">. &lt;!-- 
+  N
+&lt; W + E &gt;
+S
+
+
+&#96;-----------------------------------------##-------&#96;
+&#96;|              |                 |       d5       |&#96;
+&#96;#d1            #d2               #d3             #d4&#96;
+&#96;|              |                 |                |&#96;
+&#96;|              |                 |                |&#96;
+&#96;---------------------------------------------------&#96;
 --&gt;
 &lt;!-- Title --&gt;
 # the door to the east 
@@ -670,7 +712,13 @@ You walk closer to the door and you see a keycard reader next to it.(if:$keycard
 * [[stop looking at the door-&gt;The Third Room]] 
 }
 
- </tw-passagedata><tw-passagedata pid="43" name="look at the door to the west" tags="" position="3069,962.6666666666665" size="100,100">Double-click this passage to edit it.</tw-passagedata></tw-storydata>
+</tw-passagedata>
+<tw-passagedata pid="41" name="Ask if Mae can help you with the air vent" tags="" position="2502.3333333333335,1446" size="100,100">(set: $d5 to &quot;open&quot;)
+
+you ask Mae if she can go through the air vent for you. she says no but that she will ask her brother. she runs out of the room and a moment later daniel runs through into room 3.
+
+* [[Follow the boy-&gt;The Third Room]] 
+</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
